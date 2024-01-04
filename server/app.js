@@ -1,8 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-
-import pizzas from "./routers/pizzas";
+import pizzas from "./routers/pizzas.js";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -49,7 +48,7 @@ const logging = (request, response, next) => {
 };
 
 app.use(cors);
-
+app.use(express.json());
 app.use(logging);
 
 app.get("/status", (request, response) => {
